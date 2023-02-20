@@ -12,8 +12,35 @@ public class Tower {
       pyramid = new Stack<Disk>();
    }
    
+   public void push(Disk d) {
+	   pyramid.push(d);
+   }
+   
+   public Disk pop() {
+	   try {
+		   pyramid.peek();
+	   } catch (Exception e) {
+		   return null;
+	   }
+	   
+	   return pyramid.pop();
+   }
+   
+   public Disk peek() {
+	   try {
+		   pyramid.peek();
+	   } catch (Exception e) {
+		   return null;
+	   }
+	   return pyramid.peek();
+   }
+   
+   public boolean empty() {
+	   return peek() == null;
+   }
+   
    public String toString() {
-      Stack<Disk> clone = (Stack<Disk>) pyramid.clone();
+      Stack<Disk> clone = (Stack<Disk>)pyramid.clone();
       
       String output = "(";
       while (clone.empty() == true) {
