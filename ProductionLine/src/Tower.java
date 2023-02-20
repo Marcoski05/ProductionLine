@@ -1,9 +1,9 @@
+import java.util.Stack;
+
 /**
  * @author mcecc
  *
  */
-import java.util.Stack;
-
 public class Tower {
    
    Stack<Disk> pyramid;
