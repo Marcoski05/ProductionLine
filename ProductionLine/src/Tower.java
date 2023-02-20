@@ -39,14 +39,16 @@ public class Tower {
 	   return peek() == null;
    }
    
+   @Override
    public String toString() {
       Stack<Disk> clone = (Stack<Disk>)pyramid.clone();
       
       String output = "(";
-      while (clone.empty() == true) {
+      while (!clone.empty()) {
          output += clone.pop() + ", ";
       }
-      output = output.substring(0, output.length()-2) + ")";
+      if (output.length() > 1)
+    	  output = output.substring(0, output.length()-2) + ")";
       
       return output;
    }

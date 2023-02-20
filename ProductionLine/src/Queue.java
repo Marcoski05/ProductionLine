@@ -17,7 +17,10 @@ public class Queue {
    }
    
    public Object dequeue() {
-      return linkedList.remove();
+	   if (peek() == null)
+		   return null;
+	   
+	   return linkedList.remove();
    }
    
    public Object peek() {   

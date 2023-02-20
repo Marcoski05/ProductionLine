@@ -22,4 +22,9 @@ public class Disk implements Comparable<Disk> {
       
       return false;
    }
+   
+   @Override
+   public String toString() {
+	   return "radius: " + radius;
+   }
 }
