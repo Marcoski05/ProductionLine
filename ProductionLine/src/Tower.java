@@ -41,7 +41,8 @@ public class Tower {
    
    @Override
    public String toString() {
-      Stack<Disk> clone = (Stack<Disk>)pyramid.clone();
+      @SuppressWarnings("unchecked")
+	Stack<Disk> clone = (Stack<Disk>)pyramid.clone();
       
       String output = "(";
       while (!clone.empty()) {
