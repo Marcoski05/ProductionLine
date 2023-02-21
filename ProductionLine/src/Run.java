@@ -7,8 +7,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 /**
- * @author mcecc
- *
+ * @author Marco Cecchi-Rivas
+ * @see ProductionLine
+ * This class holds test methods for ProductionLine and handles its graphical simulation.
  */
 public class Run extends JComponent {
 
@@ -17,6 +18,9 @@ public class Run extends JComponent {
 	private final int WIDTH = 1215;
 	private final int HEIGHT = 687;
 
+	/**
+	 * Constructor that creates the ProductionLine and window. It sets up the window's properties.
+	 */
 	public Run() {
 		window = new JFrame();
 		pL = new ProductionLine(window);
@@ -29,6 +33,10 @@ public class Run extends JComponent {
 		window.setVisible(true);
 	}
 
+	/**
+	 * Methods called when repainting. Draws background elements and then calls the ProductionLine's drawMe.
+	 * @param g Graphics object
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		g.setColor(Color.BLACK);
@@ -41,6 +49,10 @@ public class Run extends JComponent {
 		pL.drawMe(g);
 	}
 
+	/**
+	 * Adds specified amount of random r=1-100 disks to the ProductionLine, processes them, and prints them.
+	 * @param amount of disks to be added to input
+	 */
 	public void test(int amount) {
 		for (int i = 0; i < amount; i++)
 			pL.addDisk(new Disk((int) (Math.random() * 100) + 1));
@@ -48,6 +60,10 @@ public class Run extends JComponent {
 		printOutput();
 	}
 
+	/**
+	 * Adds specified disks from fileName to the ProductionLine, processes them, and prints them.
+	 * @param fileName File that disk info should be grabbed from.
+	 */
 	public void testFile(String fileName) {
 		File file = new File(fileName);
 		Scanner sc;
@@ -66,6 +82,9 @@ public class Run extends JComponent {
 		printOutput();
 	}
 
+	/**
+	 * Prints ProductionLine's output Queue
+	 */
 	private void printOutput() {
 		Tower next = pL.removeTower();
 		do {
@@ -75,6 +94,10 @@ public class Run extends JComponent {
 		System.out.println();
 	}
 
+	/**
+	 * main method that starts the simulation and tests
+	 * @param args filename for Disks to be grabbed from
+	 */
 	public static void main(String[] args) {
 		Run sim = new Run();
 

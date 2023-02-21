@@ -2,17 +2,27 @@ import java.util.Stack;
 import java.awt.Graphics;
 
 /**
- * @author mcecc
- *
+ * @author Marco Cecchi-Rivas
+ * @see Disk
+ * This class holds a stack of Disk objects.
  */
 public class Tower {
 
 	private Stack<Disk> pyramid;
 
+	/**
+	 * Constructor that creates an empty Stack of disks, pyramid
+	 */
 	public Tower() {
 		pyramid = new Stack<Disk>();
 	}
 
+	/**
+	 * Draws the Disks sitting on top of eachother, in order. Clones the Tower and destroys the clone to do so.
+	 * @param g Graphics object
+	 * @param x X location for Tower to be drawn at, from the middle of the bottom
+	 * @param y Y location for Tower to be drawn at, from the middle of the bottom
+	 */
 	public void drawMe(Graphics g, int x, int y) {
 		@SuppressWarnings("unchecked")
 		Stack<Disk> clone = (Stack<Disk>) pyramid.clone();
@@ -23,10 +33,18 @@ public class Tower {
 		}
 	}
 
+	/**
+	 * Pushes an item onto the top of this Tower.
+	 * @param d Disk to be pushed onto Tower
+	 */
 	public void push(Disk d) {
 		pyramid.push(d);
 	}
 
+	/**
+	 * Removes the Disk at the top of this Tower and returns it.
+	 * @return the disk at the top of this Tower
+	 */
 	public Disk pop() {
 		try {
 			pyramid.peek();
@@ -37,6 +55,10 @@ public class Tower {
 		return pyramid.pop();
 	}
 
+	/**
+	 * Looks at the Disk at the top of this Tower without removing it.
+	 * @return the object at the top of this Tower.
+	 */
 	public Disk peek() {
 		try {
 			pyramid.peek();
@@ -50,6 +72,10 @@ public class Tower {
 		return peek() == null;
 	}
 
+	/**
+	 * Formats and returns a String that shows each Disk in order within parenthesis. Clones the Tower and destroys the clone to do so.
+	 * @return the formatted String
+	 */
 	@Override
 	public String toString() {
 		@SuppressWarnings("unchecked")
